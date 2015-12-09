@@ -1,0 +1,23 @@
+{ "name"            : "@jcoglan/tnt"
+, "description"     : "Interactive shell for proofs in Typographical Number Theory"
+, "homepage"        : "https://github/jcoglan/tnt"
+, "author"          : "James Coglan <jcoglan@gmail.com> (http://jcoglan.com/)"
+, "keywords"        : ["math", "algebra", "number", "proof", "geb", "hofstadter"]
+, "license"         : "GPL-3.0"
+
+, "version"         : "1.0.0"
+, "bin"             : { "tnt": "./bin/tnt" }
+, "preferGlobal"    : true
+
+, "devDependencies" : { "canopy": "*"
+                      , "jstest": "*"
+                      }
+
+, "scripts"         : { "test": "make test" }
+
+, "repository"      : { "type"  : "git"
+                      , "url"   : "git://github.com/jcoglan/tnt.git"
+                      }
+
+, "bugs"            : "https://github.com/jcoglan/tnt/issues"
+}

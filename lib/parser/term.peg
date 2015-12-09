@@ -1,0 +1,15 @@
+grammar TNT.Term
+
+term            <-  zero / variable / meta / succ / sum / product
+
+zero            <-  "0"                               %zero
+variable        <-  [a-z]                             %variable
+meta            <-  "$" [a-z]                         %meta
+succ            <-  "S" term                          %successor
+
+term_lhs        <-  "(" _ term _
+term_rhs        <-  _ term _ ")"
+sum             <-  term_lhs "+" term_rhs             %sum
+product         <-  term_lhs [*⋅] term_rhs            %product
+
+_               <-  " "*

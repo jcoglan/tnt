@@ -1,0 +1,7 @@
+.git
+.gitignore
+.npmignore
+Makefile
+examples
+node_modules
+spec

@@ -1,0 +1,33 @@
+grammar TNT.Formula
+
+formula         <-  quantification / compound / negation / atom / meta
+
+term            <-  zero / variable / meta / succ / sum / product
+
+zero            <-  "0"                               %zero
+variable        <-  [a-z]                             %variable
+meta            <-  "$" [a-z]                         %meta
+succ            <-  "S" term                          %successor
+
+term_lhs        <-  "(" _ term _
+term_rhs        <-  _ term _ ")"
+sum             <-  term_lhs "+" term_rhs             %sum
+product         <-  term_lhs [*⋅] term_rhs            %product
+
+_               <-  " "*
+
+atom            <-  term _ "=" _ term                 %atom
+
+negation        <-  [~∼] _ formula                    %negation
+
+compound        <-  comp_and / comp_or / comp_implies
+comp_lhs        <-  [<⟨] _ formula _
+comp_rhs        <-  _ formula _ [>⟩]
+comp_and        <-  comp_lhs [&∧] comp_rhs            %and
+comp_or         <-  comp_lhs [|∨] comp_rhs            %or
+comp_implies    <-  comp_lhs ("->" / "⊃") comp_rhs    %implies
+
+quantification  <-  quant_exists / quant_forall
+quant_tail      <-  (variable / meta) ":" _ formula
+quant_exists    <-  [E∃] quant_tail                   %exists
+quant_forall    <-  [A∀] quant_tail                   %forall

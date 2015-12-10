@@ -1,5 +1,18 @@
 # tnt(1)
 
+`tnt` is an interactive proof assistant for [Typographical Number
+Theory](https://en.wikipedia.org/wiki/Typographical_Number_Theory), as described
+in [Gödel, Escher,
+Bach](https://en.wikipedia.org/wiki/G%C3%B6del,_Escher,_Bach). It helps you
+carry out proofs while making sure you only stick to the rules of the system.
+
+In a formal system like this, it's easy to accidentally apply things you know
+about maths to your derivations. For example, you may see a theorem like `(a +
+0) = b` and, knowing what "adding zero" means, conclude that `a = b` is a
+theorem. But this is thinking "outside the system" rather than strictly
+following the system's rules. This program stops you from making errors like
+this.
+
 
 ## Installation
 
